@@ -31,7 +31,7 @@
     import { createRoot } from 'https://esm.sh/react-dom@18.3.1/client';
     import {
       Settings, Play, Pause, SkipForward, RotateCcw, X, Plus, Minus,
-      Trash2, Check, Volume2, VolumeX, Zap, ZapOff
+      Trash2, Check, Volume2, VolumeX, Zap, ZapOff, Pencil
     } from 'https://esm.sh/lucide-react@0.383.0?deps=react@18.3.1';
 
     // localStorage shim that mimics the Claude artifact storage API
@@ -143,6 +143,8 @@
       const [settingsOpen, setSettingsOpen] = useState(false);
       const [saveOpen, setSaveOpen] = useState(false);
       const [newName, setNewName] = useState('');
+      const [renamingId, setRenamingId] = useState(null);
+      const [renamingName, setRenamingName] = useState('');
 
       useEffect(() => {
         (async () => {
@@ -275,8 +277,14 @@
 
       const updateSetting = (key, value) => {
         setSettings(s => ({ ...s, [key]: value }));
-        setActivePresetId(null);
         setRunning(false); setPausedRemaining(null);
+        // If a custom preset is selected, edit it in place; default presets fork to "Custom"
+        const isCustom = customPresets.some(p => p.id === activePresetId);
+        if (isCustom) {
+          setCustomPresets(arr => arr.map(p => p.id === activePresetId ? { ...p, [key]: value } : p));
+        } else {
+          setActivePresetId(null);
+        }
       };
 
       const savePreset = () => {
@@ -295,6 +303,14 @@
       const deletePreset = (id) => {
         setCustomPresets(arr => arr.filter(x => x.id !== id));
         if (activePresetId === id) selectPreset(DEFAULT_PRESETS[0]);
+      };
+
+      const renamePreset = (id, name) => {
+        const trimmed = name.trim();
+        if (!trimmed) { setRenamingId(null); setRenamingName(''); return; }
+        setCustomPresets(arr => arr.map(p => p.id === id ? { ...p, name: trimmed } : p));
+        if (activePresetId === id) setSettings(s => ({ ...s, name: trimmed }));
+        setRenamingId(null); setRenamingName('');
       };
 
       const phaseColor = PHASE_META[phase].color;
@@ -552,16 +568,46 @@
                       <div className="text-[10px] uppercase tracking-[0.25em] mb-3" style={{ color: COLORS.muted, fontFamily: MONO }}>Your presets</div>
                       <div className="space-y-1">
                         {customPresets.map(p => (
-                          <div key={p.id} className="flex items-center justify-between py-2 px-3 rounded-lg" style={{ background: COLORS.bg }}>
-                            <div>
-                              <div style={{ fontSize: 13, color: COLORS.ink }}>{p.name}</div>
-                              <div className="text-[10px] tabular-nums mt-0.5" style={{ color: COLORS.muted, fontFamily: MONO }}>
-                                {p.focus}m · {p.shortBreak}m · {p.longBreak}m · ×{p.sessions}
-                              </div>
-                            </div>
-                            <button onClick={() => deletePreset(p.id)} className="w-8 h-8 flex items-center justify-center rounded-full transition-all" style={{ color: COLORS.muted }} aria-label={`Delete ${p.name}`}>
-                              <Trash2 size={13} strokeWidth={1.5} />
-                            </button>
+                          <div key={p.id} className="flex items-center justify-between py-2 px-3 rounded-lg gap-2" style={{ background: COLORS.bg }}>
+                            {renamingId === p.id ? (
+                              <>
+                                <input
+                                  type="text"
+                                  value={renamingName}
+                                  onChange={(e) => setRenamingName(e.target.value)}
+                                  autoFocus
+                                  className="flex-1 min-w-0 px-3 py-2 rounded-md outline-none"
+                                  style={{ background: COLORS.card, border: `1px solid ${COLORS.border}`, fontSize: 13, color: COLORS.ink, fontFamily: SANS }}
+                                  onKeyDown={(e) => {
+                                    if (e.key === 'Enter') renamePreset(p.id, renamingName);
+                                    if (e.key === 'Escape') { setRenamingId(null); setRenamingName(''); }
+                                  }}
+                                />
+                                <button onClick={() => { setRenamingId(null); setRenamingName(''); }} className="w-8 h-8 flex items-center justify-center rounded-full transition-all" style={{ color: COLORS.muted }} aria-label="Cancel rename">
+                                  <X size={13} strokeWidth={1.5} />
+                                </button>
+                                <button onClick={() => renamePreset(p.id, renamingName)} className="w-8 h-8 flex items-center justify-center rounded-full transition-all" style={{ color: COLORS.ink, background: COLORS.card, border: `1px solid ${COLORS.border}` }} aria-label="Save name">
+                                  <Check size={13} strokeWidth={1.8} />
+                                </button>
+                              </>
+                            ) : (
+                              <>
+                                <div className="min-w-0 flex-1">
+                                  <div className="truncate" style={{ fontSize: 13, color: COLORS.ink }}>{p.name}</div>
+                                  <div className="text-[10px] tabular-nums mt-0.5" style={{ color: COLORS.muted, fontFamily: MONO }}>
+                                    {p.focus}m · {p.shortBreak}m · {p.longBreak}m · ×{p.sessions}
+                                  </div>
+                                </div>
+                                <div className="flex items-center">
+                                  <button onClick={() => { setRenamingId(p.id); setRenamingName(p.name); }} className="w-8 h-8 flex items-center justify-center rounded-full transition-all" style={{ color: COLORS.muted }} aria-label={`Rename ${p.name}`}>
+                                    <Pencil size={13} strokeWidth={1.5} />
+                                  </button>
+                                  <button onClick={() => deletePreset(p.id)} className="w-8 h-8 flex items-center justify-center rounded-full transition-all" style={{ color: COLORS.muted }} aria-label={`Delete ${p.name}`}>
+                                    <Trash2 size={13} strokeWidth={1.5} />
+                                  </button>
+                                </div>
+                              </>
+                            )}
                           </div>
                         ))}
                       </div>
