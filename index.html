@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Focus">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#F2EDE4">
+  <title>Focus</title>
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAU2klEQVR42u2deXCcZ33Hn+O9Vrva1eFDlmNbSizflmXL0kqWE0phCGnLEY5whKEcQylNW1oK/YOZAoVOO5BmgFCgLQxDQqEMw2GgnaQJIYWxJa0O67LsWJZsx5FWu5JW2nvf63me/vHaRtpVUjuytNfvO4kmGc/Iu/t+9nc/vwfHI9MIBFpNBD4CEMABAjhAAAcI4AABHCCAAwRwgAAOEMABAjhAIIADBHCAAA4QwAECOEAABwjgAAEcIIADBHCAQAAHCOAAARwggAMEcIAADhDAAQI4QAAHCOAAgQAOEMABun1J8BFsjIQQnHOEECaEYAxwgBBCiHPOuXC5NK3ChbgwDMMwDFwMfEgl8wCEEIX3ujClxOXSFJfr8qWpn576xdDQyJ9+9MMd/vZ0Ok0IATg2wmK73W7J5UJCICSQEEgghJyft/IEEcIYrREt55c4v4dz55UIxtOZzOXLV3966hdPPPkfc3Pz0Xiqrm7rva+5T6RSYDk2wmZUuN1PPf3MT356yu12Y4wlR5QSQjDGCDuGnSP0cpZcmKa19pdh2zZjjBCiaZqmqYZhRCKL0zMzU1OXI4tLHre7trYWY2IYBmIMYo4NMdwYM8a2bNm8dcvm2VA4GJwNhecWFxfj8YSuG0wghJCqUE1VORerfN2FQAg/9ug/3t3YqBvGqwsVuRCGYUSj0ZemZ8bHzw+eHb589SVFJh63B2OsaWpNdbVDD+c8kUhwziHm2CA4TMM4drTF39WFBOOmlU6lo7Ho/EIkFArPzMzMBGefefa5K1euaprm5Au/y+MJyWQy+/bt/dAH/5hKEhKvYF3+/9eBCEGEIM4icwvP/fp/v/7NfxsbG/d6KxljjDHH/RGCk8kkB8uxkXxkMplkMoUxwhhTSjfV1tZt3dpypBljjGTl/e9775ve+o7FxSVJkrLi1lQq3dZ6jFAaiUQkStcY+jj/oWnqQw+9/f77X/+Zz37hiSe/7/N5b/4RJiSVzliWhTEBODaOD0miN9y/MLllmKbzSLgQ9fXbttfXh0JhWZaXwyGEkCR68mQnQoIScqfSB8bY0uKioihfffwxt7vi69/49+rqKsd4UELSqZRl24SQgkyvVqgEK6SO/SCEUEoJIS5NC4XD09MziqIsfx4YY8uy6urqjrYc0TP6HUwsnaDYtu34UvQLn//sHzxwfywWo5QKITAh6UzGNE2MMcCR/1xG1dQLFy6GwnNZZsMJOI40H66vr3ee1h3+ZAkRQtiW9Q+f/8ymTZss08IYE4x13dB1vfCLHKgceiuESgMDZy1rlcfPGD95spPK0jp9iQkh6XT6nj1NH/nwBxLJBCGEEKLrekbXCcEARwHkMro+MHhWkuQsAhhjXm9lp7/dMsz1SywppelE4uH3vnvnzp26YRBCTNPMZHSMIebIq4QQqqIEg7MvXJzQNDXLp+i6vnv3PU1Nu9fVyGOMDcPcvuOutz345lQyJUmSZVnpVArcSiEEHNq58fPz8/NZAYfzzDr8bZU+L1vnqgMh2DL0tz34Fp/P65TCkqk0wFEAboXSvv4By7KyHIcQQpKlk10nBOPr/hETkk7rBw/sb287nkqnhRCpVIoQyFby+94I0dPpgcEhWc5OYk3Tqt9W13KkeWMSByG4rCgPvPENjDEhUCKRRBgC0vwGHKry0vT0xMSl1QKOTMuR5m31deuRxK6KqaHr9957YvOmTYZhJFNJhMGt5DXgUFRtdPRcJBLJCjiuJ7FdnVSSNsa2Y4wNw2hsaDjSfCijG6li6NeXuFvBBAf6+llOVOEksX5/27omsavAqmldXSe4QMlkCiEBcORNlNJUIjk4OKSqSm4Su6dpd9Pu3RtZqcQYM8vs8LdpqhyNxYqBjRKFg3OuquqVq1cnpy6rqrq8U+8ksX5/m8dbyTawdU4I0XVj/769jQ27IguLYDnyGY0qqnr27Eg0GpMkKeuPZFk62dW5AUlslizL8tXUtB1vXYgsCC4Kf96nlLOV3kBfrm03TXPbtrojzc356n7de7Izk85wzgCOvGCBJEmKLi0NDY+oqySxxpHmjUtiszyLlcn429sQxolksvCLpCUJB9c07eLEpatXr2UFHE6qcrKrY8OS2Cy7pRtGY2PDJz/xcWYXwaRgScIhJEXp7x9MpVJ05bfzehLbvqFJbO7Lu/8Nr1dVFcrn+ShvYMwsqyfQRynJyRc2ohP7/yqVShU+GSUIhxBCluVQODw2di5r3NxJYtvbWiu9XpbX+e+iaMmWIBxccM2lnTs3PjsbyhoavT5O3NUpOEegcnQrAhEq9fT2ZSUjzjjx1rqtG9aJBTgK7/0QkkmlAoF+WcmqmuNMRm8+dGidxokBjoL3KVxoqvrii9cuXpxwadrKoA8zxrpOdEgroQGVCxxCcEXTBs8ORZayD7dxzj0et9/fZoPZKOdspbu7N6urRQjWdb2xsWHf3j0QcJQnHEKWpKXFxcGzw5qW1YklhmG0HW/1VVXZtg1Pvezg4FxomnZxYuLFa9ey6o8CIUJI14kOiDbKFA4hBFWUQGAgtfJUCMbYtqzNmzcdO9pigE8pTzgwxrZp9vQGKJWWj9JgjDMZ/cCB/Tt23GWYBkSjZQeHEEJRlNnZ0Ni585qmLV/igzG2bOtEh1/RNMHX6lY4F7xsCqwlAgfnXNO00dGxUDisKHJWElvhcnV2+FnO0aZXgaBLUz0ed5nELiXkVijp7g3YKwlwzgTs3LnjwP59uq6vBQ7Oucvjfv43v33iez+o8LjLwX6UCByU0nQy1d8/qCg5s+aG0XqspWZTjbU2yyGEkFXtqaef/da3vkPKI3ApBThuzppPXJrM3QqHBOo60bn2HVwYY24awWAwndGTiaSzqQfgKIZoVFUHB4eWotHls+YYY9u2a2qqWluPmoa+Fj6EEJIkRZeil69cTSQS0Wj05goygKMI+OjpCeR+13Vd37tnT2NDg64ba1mm45y8nbp8JRgMmaY5P78g5WMKFeC4/VBAkpYWF88OjWg555dM0+zwt7vca40fnbnUQKA/nU6bphkKz1EKcBQDHJqmvfDCxVWq5kLIitLZ2c7ZWvspBGNTN3713POyLFuWFQwGMS2DdWolAAdVlN6+gax7CByzUb9t2+FDB421bZLknLsqKkZHx/r6B9zuCsb4zEzw1e86Bjg2rryBsW2avb2BrCDAmTU/0nx4a91Wc21JLOdcVtXvfPd7qXSaUooJngnOiiJZUV2+cDhV82Bw9tz4eS179Asxxk90+td4fsmyrOpNtc89+9yPf3LK5/Uy25YonQ2FTNMo+R5ecb+961XzsbFQKHsHLWOsstLT3tZqv6rzS0IIxpht2zWbN42Pjf/V3/wtIRhjzIWQJGl+biGZTJV8qaP43Qol3T0B217hOAghhmE0Njbs3n1PRtedXdK3LoSQJEler7e6puap/37qne96OByeu3myUpKkpWg0GotRWuKljuJejO9saOnrH1QUNWslnG4YXZ0dVZu3pmNLt/sUOWOJZKp/YPA/f/ijn536JSGkwuVinKPr12KQRCKxMB/ZtXNnsdzWVnZwcM5dLtfFiUuXLk1mzQU6ndieQN/D73749lsqIpVKv/jitUuTU4bFtmyu0TRt+Qk5xyyFwmFJKnG3UsRwOFXzgYHBaDRaXV198/k5dzdVVlZ+7jOf3lRba1n27cLBOE+n03Nz8yOjY88//5vx8y+oqupyXUfEqcrPBIOIgFspZD44P9Pdm/Xsnar5saMtv//a11iWhW535SdGCGFCMKH0nQ+9PbYUferpZx597CuXL1/x+Xw3EZyZCZZ8KisVr9mQZXlhYWFoaCT3wLRlWX5/m8AkkUhmrX26xV/u/BQIyRJ993ve9drfe83H//qTTz39bHV1FUKIEBoMzgpml/bQISleODSXNn7+wkvT01n7AoUQqqp2+NsFY5RSfPty7r6glEqUCoGWIhGfz/vEd7/9pj96IBqNUkoppaFQWNcNgKNA4aCS3NPbp+srevFO1Xx7ff2hg/vXOPr1O+sqSbquM9v++te+0tJyJB5PqKoyP7+QTJb4VEexwkEIMTOZ3t4+Kff+JV1vbj60ZcsWa81Do8tzZtM0PR73Y4/+k0tTEULRWCxrfATgKBSzoSrKtZemxy+8kHNgGnHGOzv85E7PW1BK4/F4a9vxj33sT5KplJ7JzM8vlHY2W5RwcM5VlzY4NLwwvyCvvITLqZq3tbXa61CeopSm4vGPfuRDhw7sX4rGwqU+1VHE5fPuMz1i5TXBN6vmTbvvce7MurN/oxPQ1GyqfeTPPprWzdlQCJV0760Y39v1cc6BwbOqqorsrV9G67GjvirfOh2YliQpGYu/9a1vOnxw79TUZUQgWyksnyI0TXvh4sRl5wbylVYdY9zZ4V/XF2Az5vb5PviB9w8Pj3Hbht5KYUWjzjhnKpWqqalZXjW3LKu2tubo0SOGvo7DFoSQTCz+znc8SAhOJ1MlPNVRfG/MGf06091LpewD07ph7N27Z9fOHevaLMUYW7ZdXVX1F498DOY5Ci6JnZkJjp0758o9MG2a/rbjWkXFep9VdHp7iUQClbSKDA4niR0eGQ2H55SV5S9n1ryjo50zewPCAKfKDnAUmlshp8/02DZDKw9Mm6ZZX1d36OABI6NjDBtayg8OSmkiHu/rH8g6ouLMmh8+fLCurs68c1VzgKOYfIqmaROXJicnp7JGvxBCjLGOjnaacxEkqCzgEELIqhoI9CcSiayxUM652+1ubzsOa0bLFA7nrowz3T1ZZDhV84ZdO/fuabpTbXpQMcFxY+vX7MjIWO7ol64bR4+2VFdX27YNcJQdHE7AMTIyFgxl35XhqLPDjwCL8nUrlJzu7snZ+oVs266urjp2rMU0YJNkWcJBKU3GE4FAf1YSizHRdaOpaXdjwy7Ya16OcDg+5dLk1KXJqdyAwzSNtuPHymTDH8CxahKrBPr6Y7F4VqribOvq8Ldv/A3TAEfBJLG2ffp0T9aFj06bfsuWzc2HD8Fe83KEw0liQ7PhkZHRVZPYA/v3b9++zYCqeRnCwTlXNW1kdDQ4O5uVxGKMbdtqbz8uqxrc+VimboVQcvp0T+6RaGc9bXtbK7fBbJQlHE4S2xvoyzr2iDE2TWt7ff2B/ftK/mQiwPFKSezEZPbqakKIbuiHDx/cvGWzBQFHGcLhdGJ7A33xWCJ3QQ9nzN/eRiVo06+LCn363OnE5iax6Eab/njrseJu09/EuvDeAilws6EoSnB2dnhk1OXKTmKdi1T2NO0u0sVcgjPBOaaUyDKWJGeBISokE1jQcDgBx/Dw6OxsSJZXuUjlSPPh6trqogs4nKxbqayS3R5bz2Qi81YiRhRV8VVjSRa8UNbfFrxboeT06e5VpzSEEP7240U3Syw4k1xuZuhXn/5x8MyziWuTVjpJZbWi7q6trV07XvcW99btZjKOC6DaW9BwUEoTsVhvX7+qKTnbiZm3svLY0RarqAIOwZhc6Vs8f3b4a59bujiGKSWyggm1RSI9Pzs3dGbq1JMHPviJhgceslLxvHNfuHBwzt0VFcMjY5OTU5qancRmMpm9e5ruvrvRMIpmzbTgTK70hgd+G/j7R5hpKL4aJIQQzvuisqwgXGmlkwNf/JQemdv3vj+38m0/CvdjFUJIqtrdG0gkkllJrBONtrQ0+3y+Yrl+XAhOFS05fXXgi5/iti1VeASzBWdICOcfwblgNqGyWlUz/p3Hpp//L9njzW/8UbhwOGdiT5/ufpkLs3B7W1sxzQUKQVXt4g++qUfCkqvi5S5dcAwJVbULTz5uxaOYynnMX0jBmg1VUaanZ0bHcseJkW3bPp+3paW5aOYChaCKK3Ftarb317Lb+8qXAwnOqeaKX5sKBZ6XKipu+B2AY1nAobq0wbNDofBcTieWGKbR2LBr184dpmkWRcAhOKeqGrkwbMSWMJXQLdkCMTcSwHm98ocU0rcLCSG4EJxzzjnG5NTPf4lvrIxdaTlY3bY6TdNM0+ScL7/toICTcpKcvoIEv6XHLQShUir4IjONPOYs+cxWGGNCIIwRwphg7OyFpYRiQuQK789/8qP/eeZXlZWVWZOhQiCJSvNzCxKl1dVVlmXzZcqlhBBSIK6H32bszBlDeR1SySccVTXViEpICMSZbVq6rsdi8VgsHo1GT3f3fPNfv62q6qpbYD0e98WJiU//3ecefMub3e4Kj8dTUVGhaaqmaZIkEUlChNyIVYWVTmcyhXAMTri21CGMbsmnYCw4d9VsIYrKrLwVcvIJx/e//8Px8QtLi4tz8wsLkcjS0lIsFk8mU+l0Wjdtj1ujhGbtC1yuR//58S9/9V9cmkvTVJfL5XG73R63z+v1+rxVPl9Vla+6qsrtdt9338n9+/aa+a2VYcwtq2ZPM1VvNcAUnNUcaMGU5jFbyQMcQiBKsGGaAwNng8Ggoihud4W3spLeczeVKCGUUkIIYYy/0ueCESFU3AhQrotxxhnnPJPJpNOZUCicyWS2bas7fPhQfptzmBCmp6uaDtbub5kf65Pdla90fyBGwrbVqtptna9jRiaP2yylfHyLEBdCUZQvf/lLiBAkEEIi5+dt/cbr/153JTf/FyGEka3r6VT+17oJwYkkN73rI/OjAeSEWi+DPpHkzMLcgff/ZeXOe8zYEs7fZWE4HpnOY0C6McW0Akl3BWdKZdX5Jx8/9+0vqVW1mBDBV1hHTAgiRI/M1Z94fcdnv5H39mw+Y46Sv0Avx7lQMxnf/75HqKycf+KrzNQll5tQCWGMkBCMWemUsK1db3jb0Y9/AWEkhMhvHJ1Py1GeEkIoHm9kfHDqZ0/OjwaM6CK3bUyJXOGp2n2g8Q/fs/2+N3LL4szKe1cW4MiPf5FcbkyldGg6cW3KjC9RzeW5q9GzvYEqiplMYFQQU4MAR7744AgJKqtEUTEhQghumdw0hOC4YO4VlOA55Su5RQhx22KWeb0uhgnGGOMCisMAjvwyggu5qwzH0kEABwjgAAEcIIADBHCAAA4QwAECOEAABwjgAIEADhDAAQI4QAAHCOAAARwggAMEcIAADhDAAQIBHCCAAwRwgAAOEMABAjhAAAcI4AABHCCAAwQCOEAABwjgAAEcoA3R/wEiIsPkY1ikuQAAAABJRU5ErkJggg==">
+  <link rel="apple-touch-icon" href="data:image/png;base64,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">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,200..600&family=JetBrains+Mono:wght@400;500&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html, body, #root { height: 100%; margin: 0; }
+    body { background: #F2EDE4; -webkit-tap-highlight-color: transparent; overscroll-behavior: none; }
+    .loading-shell { display:flex; align-items:center; justify-content:center; height:100%; color:#8A8175; font-family:'JetBrains Mono',ui-monospace,monospace; font-size:10px; letter-spacing:.25em; text-transform:uppercase; }
+    .preset-scroll::-webkit-scrollbar { display: none; }
+  </style>
+</head>
+<body>
+  <div id="root"><div class="loading-shell">Loading…</div></div>
+
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel" data-type="module" data-presets="react">
+    import React, { useState, useEffect, useRef, useCallback } from 'https://esm.sh/react@18.3.1';
+    import { createRoot } from 'https://esm.sh/react-dom@18.3.1/client';
+    import {
+      Settings, Play, Pause, SkipForward, RotateCcw, X, Plus, Minus,
+      Trash2, Check, Volume2, VolumeX, Zap, ZapOff
+    } from 'https://esm.sh/lucide-react@0.383.0?deps=react@18.3.1';
+
+    // localStorage shim that mimics the Claude artifact storage API
+    const storage = {
+      get: async (key) => {
+        const v = localStorage.getItem(key);
+        return v === null ? null : { value: v };
+      },
+      set: async (key, value) => {
+        localStorage.setItem(key, value);
+        return { value };
+      },
+    };
+
+    const DEFAULT_PRESETS = [
+      { id: 'classic',   name: 'Classic',   focus: 25, shortBreak: 5,  longBreak: 15, sessions: 4, builtIn: true },
+      { id: 'deep-work', name: 'Deep Work', focus: 50, shortBreak: 10, longBreak: 20, sessions: 3, builtIn: true },
+      { id: 'sprint',    name: 'Sprint',    focus: 15, shortBreak: 3,  longBreak: 15, sessions: 6, builtIn: true },
+      { id: 'ultradian', name: 'Ultradian', focus: 90, shortBreak: 20, longBreak: 30, sessions: 2, builtIn: true },
+    ];
+
+    const COLORS = {
+      bg:       '#F2EDE4',
+      card:     '#FAF7F0',
+      ink:      '#1C1A17',
+      muted:    '#8A8175',
+      faint:    '#B8AE9E',
+      border:   '#E0D8C8',
+      focus:    '#A8451F',
+      shortBrk: '#4F6B4F',
+      longBrk:  '#2E5266',
+    };
+
+    const PHASE_META = {
+      focus:      { label: 'focus',       color: COLORS.focus,    full: 'focus session' },
+      shortBreak: { label: 'short break', color: COLORS.shortBrk, full: 'short break' },
+      longBreak:  { label: 'long break',  color: COLORS.longBrk,  full: 'long break' },
+    };
+
+    const SERIF = "'Fraunces', 'Iowan Old Style', 'Hoefler Text', Georgia, serif";
+    const MONO  = "'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace";
+    const SANS  = "'Geist', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif";
+
+    function NumberField({ value, onChange, min = 1, max = 180, unit = 'min' }) {
+      return (
+        <div className="flex items-center gap-2" style={{ fontFamily: MONO }}>
+          <button
+            onClick={() => onChange(Math.max(min, value - 1))}
+            className="w-7 h-7 flex items-center justify-center rounded-full transition-colors"
+            style={{ background: COLORS.bg, color: COLORS.ink }}
+            aria-label="Decrease"
+          >
+            <Minus size={13} strokeWidth={1.8} />
+          </button>
+          <div className="w-14 text-center text-sm tabular-nums" style={{ color: COLORS.ink }}>
+            {value}<span style={{ color: COLORS.faint, marginLeft: 3 }}>{unit}</span>
+          </div>
+          <button
+            onClick={() => onChange(Math.min(max, value + 1))}
+            className="w-7 h-7 flex items-center justify-center rounded-full transition-colors"
+            style={{ background: COLORS.bg, color: COLORS.ink }}
+            aria-label="Increase"
+          >
+            <Plus size={13} strokeWidth={1.8} />
+          </button>
+        </div>
+      );
+    }
+
+    function Toggle({ on, onChange, iconOn, iconOff }) {
+      return (
+        <button
+          onClick={() => onChange(!on)}
+          className="relative inline-flex items-center transition-colors rounded-full"
+          style={{ width: 44, height: 24, background: on ? COLORS.ink : COLORS.border }}
+          aria-pressed={on}
+        >
+          <span
+            className="absolute flex items-center justify-center rounded-full transition-all"
+            style={{
+              width: 18, height: 18, top: 3,
+              left: on ? 23 : 3,
+              background: COLORS.card, color: COLORS.ink,
+            }}
+          >
+            {on ? iconOn : iconOff}
+          </span>
+        </button>
+      );
+    }
+
+    function FocusTimer() {
+      const [customPresets, setCustomPresets] = useState([]);
+      const [storageReady, setStorageReady] = useState(false);
+
+      const [settings, setSettings] = useState(DEFAULT_PRESETS[0]);
+      const [activePresetId, setActivePresetId] = useState('classic');
+
+      const [phase, setPhase] = useState('focus');
+      const [sessionIndex, setSessionIndex] = useState(0);
+      const [running, setRunning] = useState(false);
+      const [endTime, setEndTime] = useState(null);
+      const [pausedRemaining, setPausedRemaining] = useState(null);
+      const [now, setNow] = useState(Date.now());
+
+      const [autoStart, setAutoStart] = useState(false);
+      const [soundOn, setSoundOn] = useState(true);
+
+      const [settingsOpen, setSettingsOpen] = useState(false);
+      const [saveOpen, setSaveOpen] = useState(false);
+      const [newName, setNewName] = useState('');
+
+      useEffect(() => {
+        (async () => {
+          let presets = [];
+          try {
+            const p = await storage.get('focus:presets');
+            if (p?.value) { presets = JSON.parse(p.value); setCustomPresets(presets); }
+          } catch (e) {}
+          try {
+            const pr = await storage.get('focus:prefs');
+            if (pr?.value) {
+              const v = JSON.parse(pr.value);
+              if (typeof v.autoStart === 'boolean') setAutoStart(v.autoStart);
+              if (typeof v.soundOn === 'boolean')   setSoundOn(v.soundOn);
+              if (v.lastPresetId) {
+                const all = [...DEFAULT_PRESETS, ...presets];
+                const found = all.find(x => x.id === v.lastPresetId);
+                if (found) { setSettings(found); setActivePresetId(found.id); }
+              }
+            }
+          } catch (e) {}
+          setStorageReady(true);
+        })();
+      }, []);
+
+      useEffect(() => {
+        if (!storageReady) return;
+        storage.set('focus:presets', JSON.stringify(customPresets)).catch(() => {});
+      }, [customPresets, storageReady]);
+
+      useEffect(() => {
+        if (!storageReady) return;
+        storage.set('focus:prefs', JSON.stringify({
+          autoStart, soundOn, lastPresetId: activePresetId,
+        })).catch(() => {});
+      }, [autoStart, soundOn, activePresetId, storageReady]);
+
+      const allPresets = [...DEFAULT_PRESETS, ...customPresets];
+
+      useEffect(() => {
+        if (!running) return;
+        const id = setInterval(() => setNow(Date.now()), 200);
+        return () => clearInterval(id);
+      }, [running]);
+
+      const phaseMinutes =
+        phase === 'focus'      ? settings.focus      :
+        phase === 'shortBreak' ? settings.shortBreak :
+                                 settings.longBreak;
+      const phaseDurationMs = phaseMinutes * 60 * 1000;
+
+      const remainingMs = running
+        ? Math.max(0, (endTime ?? 0) - now)
+        : (pausedRemaining ?? phaseDurationMs);
+
+      const remainingSec = Math.ceil(remainingMs / 1000);
+      const mins = Math.floor(remainingSec / 60);
+      const secs = remainingSec % 60;
+      const progress = 1 - Math.max(0, Math.min(1, remainingMs / phaseDurationMs));
+
+      const playChime = useCallback(() => {
+        if (!soundOn) return;
+        try {
+          const Ctx = window.AudioContext || window.webkitAudioContext;
+          const ctx = new Ctx();
+          [523.25, 659.25, 783.99].forEach((freq, i) => {
+            const o = ctx.createOscillator();
+            const g = ctx.createGain();
+            o.connect(g); g.connect(ctx.destination);
+            o.frequency.value = freq; o.type = 'sine';
+            const t = ctx.currentTime + i * 0.12;
+            g.gain.setValueAtTime(0, t);
+            g.gain.linearRampToValueAtTime(0.18, t + 0.04);
+            g.gain.exponentialRampToValueAtTime(0.001, t + 1.4);
+            o.start(t); o.stop(t + 1.5);
+          });
+        } catch (e) {}
+      }, [soundOn]);
+
+      const transitionedRef = useRef(false);
+
+      const advancePhase = useCallback(() => {
+        let nextPhase, nextIndex = sessionIndex;
+        if (phase === 'focus') {
+          nextIndex = sessionIndex + 1;
+          if (nextIndex >= settings.sessions) { nextPhase = 'longBreak'; nextIndex = 0; }
+          else { nextPhase = 'shortBreak'; }
+        } else { nextPhase = 'focus'; }
+        setPhase(nextPhase);
+        setSessionIndex(nextIndex);
+        setPausedRemaining(null);
+        setRunning(false);
+        if (autoStart) {
+          const dur =
+            nextPhase === 'focus'      ? settings.focus      :
+            nextPhase === 'shortBreak' ? settings.shortBreak :
+                                         settings.longBreak;
+          setTimeout(() => {
+            setEndTime(Date.now() + dur * 60 * 1000);
+            setRunning(true);
+          }, 700);
+        }
+      }, [phase, sessionIndex, settings, autoStart]);
+
+      useEffect(() => {
+        if (running && remainingMs <= 0 && !transitionedRef.current) {
+          transitionedRef.current = true;
+          playChime();
+          advancePhase();
+        }
+        if (remainingMs > 200) transitionedRef.current = false;
+      }, [running, remainingMs, playChime, advancePhase]);
+
+      const start = () => {
+        const dur = pausedRemaining ?? phaseDurationMs;
+        setEndTime(Date.now() + dur);
+        setPausedRemaining(null);
+        setRunning(true);
+      };
+      const pauseTimer = () => { setPausedRemaining(remainingMs); setRunning(false); };
+      const reset = () => { setRunning(false); setPausedRemaining(null); setPhase('focus'); setSessionIndex(0); };
+      const skip  = () => { setRunning(false); setPausedRemaining(null); playChime(); advancePhase(); };
+
+      const selectPreset = (p) => {
+        setActivePresetId(p.id);
+        setSettings(p);
+        setRunning(false); setPausedRemaining(null);
+        setPhase('focus'); setSessionIndex(0);
+      };
+
+      const updateSetting = (key, value) => {
+        setSettings(s => ({ ...s, [key]: value }));
+        setActivePresetId(null);
+        setRunning(false); setPausedRemaining(null);
+      };
+
+      const savePreset = () => {
+        const name = newName.trim();
+        if (!name) return;
+        const np = {
+          id: 'custom-' + Date.now(),
+          name, focus: settings.focus, shortBreak: settings.shortBreak,
+          longBreak: settings.longBreak, sessions: settings.sessions, builtIn: false,
+        };
+        setCustomPresets(arr => [...arr, np]);
+        setActivePresetId(np.id); setSettings(np);
+        setNewName(''); setSaveOpen(false);
+      };
+
+      const deletePreset = (id) => {
+        setCustomPresets(arr => arr.filter(x => x.id !== id));
+        if (activePresetId === id) selectPreset(DEFAULT_PRESETS[0]);
+      };
+
+      const phaseColor = PHASE_META[phase].color;
+      const fmt = (n) => String(n).padStart(2, '0');
+
+      return (
+        <div
+          className="min-h-screen w-full flex items-center justify-center p-4"
+          style={{
+            background: COLORS.bg, fontFamily: SANS, color: COLORS.ink,
+            backgroundImage: `radial-gradient(circle at 20% 0%, rgba(168,69,31,0.04), transparent 60%), radial-gradient(circle at 80% 100%, rgba(46,82,102,0.04), transparent 60%)`,
+            paddingTop: 'max(1rem, env(safe-area-inset-top))',
+            paddingBottom: 'max(1rem, env(safe-area-inset-bottom))',
+          }}
+        >
+          <div className="w-full max-w-md">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <div className="text-[10px] uppercase tracking-[0.25em]" style={{ color: COLORS.muted, fontFamily: MONO }}>Focus</div>
+                <div className="text-2xl leading-none mt-1" style={{ fontFamily: SERIF, fontWeight: 300, fontStyle: 'italic', letterSpacing: '-0.01em' }}>
+                  Deep work, on a timer.
+                </div>
+              </div>
+              <button
+                onClick={() => setSettingsOpen(true)}
+                className="w-10 h-10 flex items-center justify-center rounded-full transition-all"
+                style={{ background: COLORS.card, border: `1px solid ${COLORS.border}`, color: COLORS.ink }}
+                aria-label="Settings"
+              >
+                <Settings size={16} strokeWidth={1.5} />
+              </button>
+            </div>
+
+            <div className="-mx-1 mb-8 overflow-x-auto preset-scroll" style={{ scrollbarWidth: 'none' }}>
+              <div className="flex gap-2 px-1 pb-1">
+                {allPresets.map(p => {
+                  const active = activePresetId === p.id;
+                  return (
+                    <button
+                      key={p.id}
+                      onClick={() => selectPreset(p)}
+                      className="px-4 py-2 rounded-full whitespace-nowrap transition-all text-xs"
+                      style={{
+                        background: active ? COLORS.ink : COLORS.card,
+                        color: active ? COLORS.card : COLORS.ink,
+                        border: `1px solid ${active ? COLORS.ink : COLORS.border}`,
+                        fontFamily: MONO, fontWeight: 500, letterSpacing: '0.02em',
+                      }}
+                    >
+                      {p.name}
+                    </button>
+                  );
+                })}
+                {activePresetId === null && (
+                  <div
+                    className="px-4 py-2 rounded-full whitespace-nowrap text-xs flex items-center gap-1.5"
+                    style={{ background: 'transparent', color: COLORS.muted, border: `1px dashed ${COLORS.border}`, fontFamily: MONO, fontStyle: 'italic' }}
+                  >Custom</div>
+                )}
+              </div>
+            </div>
+
+            <div
+              className="relative rounded-2xl overflow-hidden"
+              style={{
+                background: COLORS.card,
+                border: `1px solid ${COLORS.border}`,
+                boxShadow: '0 1px 0 rgba(0,0,0,0.02), 0 30px 60px -30px rgba(28,26,23,0.12)',
+              }}
+            >
+              <div className="flex items-center justify-between px-6 pt-6 pb-2">
+                <div className="flex items-center gap-2">
+                  <span className="inline-block rounded-full" style={{ width: 6, height: 6, background: phaseColor }} />
+                  <span className="text-[10px] uppercase tracking-[0.25em]" style={{ color: COLORS.muted, fontFamily: MONO }}>
+                    {PHASE_META[phase].full}
+                  </span>
+                </div>
+                <span className="text-[10px] uppercase tracking-[0.25em] tabular-nums" style={{ color: COLORS.muted, fontFamily: MONO }}>
+                  {phase === 'focus' ? `${sessionIndex + 1} / ${settings.sessions}` : '—'}
+                </span>
+              </div>
+
+              <div className="px-6 pt-6 pb-8 flex flex-col items-center">
+                <div
+                  className="tabular-nums leading-none select-none"
+                  style={{
+                    fontFamily: SERIF, fontWeight: 250,
+                    fontSize: 'clamp(86px, 22vw, 132px)',
+                    letterSpacing: '-0.04em', color: COLORS.ink,
+                    fontVariantNumeric: 'tabular-nums',
+                  }}
+                >
+                  {fmt(mins)}<span style={{ color: COLORS.faint, fontWeight: 200 }}>:</span>{fmt(secs)}
+                </div>
+
+                <div className="w-full mt-8 rounded-full overflow-hidden" style={{ height: 2, background: COLORS.border }}>
+                  <div
+                    className="h-full transition-all"
+                    style={{ width: `${progress * 100}%`, background: phaseColor, transitionDuration: running ? '200ms' : '300ms' }}
+                  />
+                </div>
+
+                <div className="flex items-center gap-2 mt-6">
+                  {Array.from({ length: settings.sessions }).map((_, i) => {
+                    const done = i < sessionIndex;
+                    const current = i === sessionIndex && phase === 'focus';
+                    return (
+                      <span
+                        key={i}
+                        className="rounded-full transition-all"
+                        style={{ width: current ? 18 : 6, height: 6, background: done || current ? COLORS.focus : COLORS.border }}
+                      />
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div className="px-6 pb-6 flex items-center justify-center gap-3">
+                <button onClick={reset} className="w-12 h-12 flex items-center justify-center rounded-full transition-all"
+                  style={{ background: 'transparent', border: `1px solid ${COLORS.border}`, color: COLORS.muted }} aria-label="Reset">
+                  <RotateCcw size={15} strokeWidth={1.5} />
+                </button>
+                <button
+                  onClick={running ? pauseTimer : start}
+                  className="h-14 px-8 flex items-center justify-center gap-2 rounded-full transition-all"
+                  style={{
+                    background: COLORS.ink, color: COLORS.card, minWidth: 160,
+                    fontFamily: MONO, fontSize: 12, fontWeight: 500,
+                    letterSpacing: '0.18em', textTransform: 'uppercase',
+                  }}
+                >
+                  {running ? <Pause size={14} strokeWidth={2} fill={COLORS.card} /> : <Play size={14} strokeWidth={2} fill={COLORS.card} />}
+                  {running ? 'Pause' : (pausedRemaining ? 'Resume' : 'Begin')}
+                </button>
+                <button onClick={skip} className="w-12 h-12 flex items-center justify-center rounded-full transition-all"
+                  style={{ background: 'transparent', border: `1px solid ${COLORS.border}`, color: COLORS.muted }} aria-label="Skip phase">
+                  <SkipForward size={15} strokeWidth={1.5} />
+                </button>
+              </div>
+            </div>
+
+            <div className="mt-6 text-center text-[10px] uppercase tracking-[0.25em]" style={{ color: COLORS.faint, fontFamily: MONO }}>
+              {settings.focus}m focus · {settings.shortBreak}m short · {settings.longBreak}m long · ×{settings.sessions}
+            </div>
+          </div>
+
+          {settingsOpen && (
+            <div
+              className="fixed inset-0 z-50 flex items-end sm:items-center justify-center"
+              style={{ background: 'rgba(28,26,23,0.4)', backdropFilter: 'blur(4px)' }}
+              onClick={() => setSettingsOpen(false)}
+            >
+              <div
+                className="w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl overflow-hidden"
+                style={{ background: COLORS.card, border: `1px solid ${COLORS.border}`, maxHeight: '90vh', overflowY: 'auto' }}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="flex items-center justify-between px-6 py-4 sticky top-0" style={{ background: COLORS.card, borderBottom: `1px solid ${COLORS.border}` }}>
+                  <div>
+                    <div className="text-[10px] uppercase tracking-[0.25em]" style={{ color: COLORS.muted, fontFamily: MONO }}>Customize</div>
+                    <div className="text-xl mt-0.5" style={{ fontFamily: SERIF, fontWeight: 300, fontStyle: 'italic' }}>
+                      {activePresetId ? allPresets.find(p => p.id === activePresetId)?.name ?? 'Custom' : 'Custom'}
+                    </div>
+                  </div>
+                  <button onClick={() => setSettingsOpen(false)} className="w-9 h-9 flex items-center justify-center rounded-full" style={{ background: COLORS.bg, color: COLORS.ink }} aria-label="Close">
+                    <X size={16} strokeWidth={1.5} />
+                  </button>
+                </div>
+
+                <div className="px-6 py-5">
+                  <div className="text-[10px] uppercase tracking-[0.25em] mb-4" style={{ color: COLORS.muted, fontFamily: MONO }}>Durations</div>
+                  <div className="space-y-3">
+                    {[
+                      { key: 'focus',      label: 'Focus',       max: 180, color: COLORS.focus    },
+                      { key: 'shortBreak', label: 'Short break', max: 60,  color: COLORS.shortBrk },
+                      { key: 'longBreak',  label: 'Long break',  max: 90,  color: COLORS.longBrk  },
+                    ].map(row => (
+                      <div key={row.key} className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <span className="inline-block rounded-full" style={{ width: 6, height: 6, background: row.color }} />
+                          <span style={{ fontSize: 14, color: COLORS.ink }}>{row.label}</span>
+                        </div>
+                        <NumberField value={settings[row.key]} onChange={(v) => updateSetting(row.key, v)} min={1} max={row.max} />
+                      </div>
+                    ))}
+                    <div className="flex items-center justify-between pt-1">
+                      <div className="flex items-center gap-3">
+                        <span className="inline-block rounded-full" style={{ width: 6, height: 6, background: COLORS.faint }} />
+                        <span style={{ fontSize: 14, color: COLORS.ink }}>Sessions per cycle</span>
+                      </div>
+                      <NumberField value={settings.sessions} onChange={(v) => updateSetting('sessions', v)} min={1} max={10} unit="×" />
+                    </div>
+                  </div>
+                </div>
+
+                <div style={{ borderTop: `1px solid ${COLORS.border}` }} />
+
+                <div className="px-6 py-5">
+                  <div className="text-[10px] uppercase tracking-[0.25em] mb-4" style={{ color: COLORS.muted, fontFamily: MONO }}>Options</div>
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <div style={{ fontSize: 14, color: COLORS.ink }}>Auto-start next phase</div>
+                        <div className="text-xs mt-0.5" style={{ color: COLORS.muted }}>Roll into the next session without tapping</div>
+                      </div>
+                      <Toggle on={autoStart} onChange={setAutoStart}
+                        iconOn={<Zap size={10} strokeWidth={2} fill={COLORS.ink} />}
+                        iconOff={<ZapOff size={10} strokeWidth={2} />} />
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <div style={{ fontSize: 14, color: COLORS.ink }}>Chime on transition</div>
+                        <div className="text-xs mt-0.5" style={{ color: COLORS.muted }}>Soft triad when a phase ends</div>
+                      </div>
+                      <Toggle on={soundOn} onChange={setSoundOn}
+                        iconOn={<Volume2 size={10} strokeWidth={2} />}
+                        iconOff={<VolumeX size={10} strokeWidth={2} />} />
+                    </div>
+                  </div>
+                </div>
+
+                <div style={{ borderTop: `1px solid ${COLORS.border}` }} />
+
+                <div className="px-6 py-5">
+                  <div className="text-[10px] uppercase tracking-[0.25em] mb-4" style={{ color: COLORS.muted, fontFamily: MONO }}>Preset</div>
+                  {saveOpen ? (
+                    <div className="space-y-3">
+                      <input
+                        type="text" value={newName}
+                        onChange={(e) => setNewName(e.target.value)}
+                        placeholder="Preset name" autoFocus
+                        className="w-full px-4 py-3 rounded-xl outline-none"
+                        style={{ background: COLORS.bg, border: `1px solid ${COLORS.border}`, fontSize: 14, color: COLORS.ink, fontFamily: SANS }}
+                        onKeyDown={(e) => { if (e.key === 'Enter') savePreset(); }}
+                      />
+                      <div className="flex gap-2">
+                        <button onClick={() => { setSaveOpen(false); setNewName(''); }} className="flex-1 py-3 rounded-xl transition-all"
+                          style={{ background: 'transparent', border: `1px solid ${COLORS.border}`, color: COLORS.muted, fontFamily: MONO, fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase' }}>
+                          Cancel
+                        </button>
+                        <button onClick={savePreset} disabled={!newName.trim()} className="flex-1 py-3 rounded-xl transition-all flex items-center justify-center gap-2"
+                          style={{ background: newName.trim() ? COLORS.ink : COLORS.border, color: newName.trim() ? COLORS.card : COLORS.muted, fontFamily: MONO, fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase' }}>
+                          <Check size={12} strokeWidth={2} /> Save
+                        </button>
+                      </div>
+                    </div>
+                  ) : (
+                    <button onClick={() => setSaveOpen(true)} className="w-full py-3 rounded-xl transition-all flex items-center justify-center gap-2"
+                      style={{ background: 'transparent', border: `1px dashed ${COLORS.border}`, color: COLORS.ink, fontFamily: MONO, fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase' }}>
+                      <Plus size={12} strokeWidth={2} /> Save current as preset
+                    </button>
+                  )}
+                  {customPresets.length > 0 && (
+                    <div className="mt-5">
+                      <div className="text-[10px] uppercase tracking-[0.25em] mb-3" style={{ color: COLORS.muted, fontFamily: MONO }}>Your presets</div>
+                      <div className="space-y-1">
+                        {customPresets.map(p => (
+                          <div key={p.id} className="flex items-center justify-between py-2 px-3 rounded-lg" style={{ background: COLORS.bg }}>
+                            <div>
+                              <div style={{ fontSize: 13, color: COLORS.ink }}>{p.name}</div>
+                              <div className="text-[10px] tabular-nums mt-0.5" style={{ color: COLORS.muted, fontFamily: MONO }}>
+                                {p.focus}m · {p.shortBreak}m · {p.longBreak}m · ×{p.sessions}
+                              </div>
+                            </div>
+                            <button onClick={() => deletePreset(p.id)} className="w-8 h-8 flex items-center justify-center rounded-full transition-all" style={{ color: COLORS.muted }} aria-label={`Delete ${p.name}`}>
+                              <Trash2 size={13} strokeWidth={1.5} />
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+                <div className="h-2" />
+              </div>
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    createRoot(document.getElementById('root')).render(<FocusTimer />);
+  </script>
+</body>
+</html>
